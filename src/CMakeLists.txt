@@ -1,0 +1,1 @@
+add_library(arithmetic STATIC arithmetic.cpp)

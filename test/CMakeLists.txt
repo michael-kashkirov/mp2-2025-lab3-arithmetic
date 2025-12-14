@@ -1,8 +1,16 @@
-set(target postfix_test)
+set(TEST_SOURCES 
+    test_stack.cpp
+    test_arithmetic.cpp
+    test_main.cpp
+)
 
-#file(GLOB hdrs "*.h*" "../include/*.h" "../gtest/*.h")
-file(GLOB hdrs "*.h*")
-file(GLOB srcs "*.cpp" "../src/arithmetic.cpp")
+add_executable(gtest_arithmetic ${TEST_SOURCES})
 
-add_executable(${target} ${srcs} ${hdrs})
-target_link_libraries(${target} gtest)
+target_include_directories(gtest_arithmetic PUBLIC
+    ${gtest_SOURCE_DIR} 
+)
+
+target_link_libraries(gtest_arithmetic
+    arithmetic
+    gtest
+)
